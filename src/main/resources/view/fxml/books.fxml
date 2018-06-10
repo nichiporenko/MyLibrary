@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excelsiorious.library.controller.BookController">
+    <TableView fx:id="bookTable" prefHeight="334.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="30.0" text="№" />
+            <TableColumn fx:id="nameColumn" prefWidth="140.99999237060547" text="Название" />
+            <TableColumn fx:id="authorColumn" prefWidth="117.0" text="Автор" />
+            <TableColumn fx:id="countryColumn" prefWidth="82.0" text="Страна" />
+            <TableColumn fx:id="genreColumn" prefWidth="67.0" text="Жанр" />
+            <TableColumn fx:id="languageColumn" prefWidth="75.0" text="Язык" />
+            <TableColumn fx:id="publishingHouseColumn" prefWidth="113.0" text="Издательство" />
+            <TableColumn fx:id="circulationColumn" prefWidth="69.0" text="Тираж" />
+        </columns>
+    </TableView>
+    <HBox alignment="CENTER" layoutX="10.0" layoutY="334.0" prefHeight="56.0" prefWidth="674.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <TextField fx:id="txtName" promptText="Название">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="txtAuthor" promptText="Автор">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="txtCountry" promptText="Страна">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="txtGenre" promptText="Жанр">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="txtLanguage" promptText="Язык">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="txtPublishingHouse" promptText="Издательство">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="txtCirculation" promptText="Тираж">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <Button layoutX="313.0" layoutY="390.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#addBook" text="Добавить" />
+</AnchorPane>

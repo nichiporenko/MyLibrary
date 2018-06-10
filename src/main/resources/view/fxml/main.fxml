@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0"
+            prefWidth="405.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.excelsiorious.library.controller.MainController">
+    <HBox alignment="CENTER" layoutX="21.0" layoutY="207.0" prefHeight="50.0" prefWidth="300.0"
+          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <Button fx:id="buttonExit" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickExit"
+                prefHeight="41.0" prefWidth="84.0" text="Выход"/>
+    </HBox>
+    <Label layoutX="143.0" layoutY="24.0" text="Выберите категорию:"/>
+    <Button fx:id="buttonBooks" layoutX="92.0" layoutY="76.0" minWidth="-Infinity" mnemonicParsing="false"
+            onMouseClicked="#onClickBooks" prefHeight="25.0" prefWidth="221.0" text="Книги"/>
+    <Button fx:id="buttonCountries" layoutX="92.0" layoutY="126.0" minWidth="-Infinity" mnemonicParsing="false"
+            onMouseClicked="#onClickCountries" prefHeight="25.0" prefWidth="221.0" text="Страны"/>
+    <Button fx:id="buttonLanguages" layoutX="92.0" layoutY="151.0" minWidth="-Infinity" mnemonicParsing="false"
+            onMouseClicked="#onClickLanguages" prefHeight="25.0" prefWidth="221.0" text="Языки"/>
+    <Button fx:id="buttonHouses" layoutX="92.0" layoutY="176.0" minWidth="-Infinity" mnemonicParsing="false"
+            onMouseClicked="#onClickHouses" prefHeight="25.0" prefWidth="221.0" text="Издательства"/>
+    <Button fx:id="buttonAuthors" layoutX="92.0" layoutY="51.0" minWidth="-Infinity" mnemonicParsing="false"
+            onMouseClicked="#onClickAuthors" prefHeight="25.0" prefWidth="221.0" text="Авторы"/>
+    <Button fx:id="buttonGenres" layoutX="92.0" layoutY="101.0" minWidth="-Infinity" mnemonicParsing="false"
+            onMouseClicked="#onClickGenres" prefHeight="25.0" prefWidth="221.0" text="Жанры"/>
+</AnchorPane>
