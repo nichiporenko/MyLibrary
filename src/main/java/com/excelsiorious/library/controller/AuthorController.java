@@ -18,6 +18,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AuthorController implements Initializable {
+    private static final String PATTERN_DATE = "d/MM/yyyy";
+    private static final String PROPERTY_ID = "id";
+    private static final String PROPERTY_FIRST_NAME = "firstName";
+    private static final String PROPERTY_LAST_NAME = "lastName";
+    private static final String PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
     public TableView<Author> authorTable;
     public TableColumn<Author, String> idColumn;
     public TableColumn<Author, String> firstNameColumn;
@@ -26,7 +31,6 @@ public class AuthorController implements Initializable {
     public TextField txtFirstName;
     public TextField txtLastName;
     public TextField txtDateOfBirth;
-
     private AuthorService authorService;
     private List<Author> authors;
 
@@ -47,7 +51,7 @@ public class AuthorController implements Initializable {
             author.setId(nextId);
             author.setFirstName(textFirstName);
             author.setLastName(textLastName);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(PATTERN_DATE);
             author.setDateOfBirth(LocalDate.parse(textDOB, formatter));
             authorService.create(author);
             showData();
@@ -58,10 +62,10 @@ public class AuthorController implements Initializable {
         authors = authorService.findAll();
         ObservableList<Author> observableList = FXCollections.observableArrayList(authors);
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        dateOfBirthColumn.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_ID));
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_FIRST_NAME));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_LAST_NAME));
+        dateOfBirthColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_DATE_OF_BIRTH));
         authorTable.setItems(observableList);
     }
 }

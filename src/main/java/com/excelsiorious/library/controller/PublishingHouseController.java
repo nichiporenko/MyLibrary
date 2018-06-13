@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class PublishingHouseController implements Initializable {
+    private static final String PROPERTY_ID = "id";
+    private static final String PROPERTY_NAME = "name";
     public TableView<PublishingHouse> publishingHouseTable;
     public TableColumn<PublishingHouse, String> idColumn;
     public TableColumn<PublishingHouse, String> nameColumn;
@@ -47,8 +49,8 @@ public class PublishingHouseController implements Initializable {
         publishingHouses = publishingHouseService.findAll();
         ObservableList<PublishingHouse> observableList = FXCollections.observableArrayList(publishingHouses);
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_ID));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_NAME));
         publishingHouseTable.setItems(observableList);
     }
 }

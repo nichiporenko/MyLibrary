@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class GenreController implements Initializable {
+    private static final String PROPERTY_ID = "id";
+    private static final String PROPERTY_NAME = "name";
     public TableView<Genre> genreTable;
     public TableColumn<Genre, String> idColumn;
     public TableColumn<Genre, String> nameColumn;
@@ -47,8 +49,8 @@ public class GenreController implements Initializable {
         genres = genreService.findAll();
         ObservableList<Genre> observableList = FXCollections.observableArrayList(genres);
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_ID));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_NAME));
         genreTable.setItems(observableList);
     }
 }

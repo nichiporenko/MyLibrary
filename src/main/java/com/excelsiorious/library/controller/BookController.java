@@ -10,7 +10,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.hibernate.Hibernate;
 import org.springframework.context.support.AbstractApplicationContext;
 
 import java.net.URL;
@@ -19,6 +18,15 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class BookController implements Initializable {
+    private static final String SPLITTER_NAME = " ";
+    private static final String PROPERTY_ID = "id";
+    private static final String PROPERTY_NAME = "name";
+    private static final String PROPERTY_AUTHOR = "author";
+    private static final String PROPERTY_COUNTRY = "country";
+    private static final String PROPERTY_GENRE = "genre";
+    private static final String PROPERTY_LANGUAGE = "language";
+    private static final String PROPERTY_PUBLISHING_HOUSE = "publishingHouse";
+    private static final String PROPERTY_CIRCULATION = "circulation";
     public TableView<Book> bookTable;
     public TableColumn<Book, String> idColumn;
     public TableColumn<Book, String> nameColumn;
@@ -35,7 +43,6 @@ public class BookController implements Initializable {
     public TextField txtLanguage;
     public TextField txtPublishingHouse;
     public TextField txtCirculation;
-
     private BookService bookService;
     private AuthorService authorService;
     private CountryService countryService;
@@ -73,12 +80,11 @@ public class BookController implements Initializable {
                 Book book = new Book();
                 book.setId(nextId);
                 book.setName(textName);
-                String[] names = textAuthor.split(" ");
+                String[] names = textAuthor.split(SPLITTER_NAME);
                 Optional<Author> authorOptional = authorService.findByName(names[0], names[1]);
                 if (!authorOptional.isPresent()) {
                     return;
                 }
-                Author author = authorOptional.get();
                 book.setAuthor(authorOptional.get());
                 Optional<Country> countryOptional = countryService.findByName(textCountry);
                 if (!countryOptional.isPresent()) {
@@ -114,14 +120,14 @@ public class BookController implements Initializable {
         books = bookService.findAll();
         ObservableList<Book> observableList = FXCollections.observableArrayList(books);
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
-        countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
-        genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
-        languageColumn.setCellValueFactory(new PropertyValueFactory<>("language"));
-        publishingHouseColumn.setCellValueFactory(new PropertyValueFactory<>("publishingHouse"));
-        circulationColumn.setCellValueFactory(new PropertyValueFactory<>("circulation"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_ID));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_NAME));
+        authorColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_AUTHOR));
+        countryColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_COUNTRY));
+        genreColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_GENRE));
+        languageColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_LANGUAGE));
+        publishingHouseColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_PUBLISHING_HOUSE));
+        circulationColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_CIRCULATION));
         bookTable.setItems(observableList);
     }
 }

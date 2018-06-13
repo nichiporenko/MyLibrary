@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class LanguageController implements Initializable {
+    private static final String PROPERTY_ID = "id";
+    private static final String PROPERTY_NAME = "name";
     public TableView<Language> languageTable;
     public TableColumn<Language, String> idColumn;
     public TableColumn<Language, String> nameColumn;
@@ -47,8 +49,8 @@ public class LanguageController implements Initializable {
         languages = languageService.findAll();
         ObservableList<Language> observableList = FXCollections.observableArrayList(languages);
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_ID));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_NAME));
         languageTable.setItems(observableList);
     }
 }

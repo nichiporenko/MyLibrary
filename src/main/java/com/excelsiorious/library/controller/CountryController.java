@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CountryController implements Initializable {
+    private static final String PROPERTY_ID = "id";
+    private static final String PROPERTY_NAME = "name";
     public TableView<Country> countryTable;
     public TableColumn<Country, String> idColumn;
     public TableColumn<Country, String> nameColumn;
@@ -47,8 +49,8 @@ public class CountryController implements Initializable {
         countries = countryService.findAll();
         ObservableList<Country> observableList = FXCollections.observableArrayList(countries);
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_ID));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>(PROPERTY_NAME));
         countryTable.setItems(observableList);
     }
 }
