@@ -1,2 +1,2 @@
 # MyLibrary
-The simple example of a library using JavaFX, JPA, Hibernate, PostgreSQL.
+The simple example of an electronic library using JavaFX, JPA, Hibernate, PostgreSQL.
